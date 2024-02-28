@@ -1,4 +1,4 @@
-import 'package:feup_flutter_demo/ui/counter_page.dart';
+import 'package:feup_flutter_demo/ui/shell_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -12,7 +12,7 @@ class App extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const CounterPage(title: 'FEUP Flutter Demo'),
+      home: const ShellPage(),
     );
   }
 }

@@ -5,9 +5,9 @@ import 'package:feup_flutter_demo/ui/second_page.dart';
 import 'package:flutter/material.dart';
 
 class CounterPage extends StatefulWidget {
-  const CounterPage({super.key, required this.title});
-
-  final String title;
+  const CounterPage({
+    super.key,
+  });
 
   @override
   State<CounterPage> createState() => _CounterPageState();
@@ -16,68 +16,62 @@ class CounterPage extends StatefulWidget {
 class _CounterPageState extends State<CounterPage> {
   int _counter = 0;
 
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SecondPage(),
+                ),
+              );
+            },
+            child: Container(
+              height: 60,
+              width: 120,
+              color: Colors.amber,
+              child: const Center(
+                child: Text('Second Page'),
+              ),
+            ),
+          ),
+          const Row(
+            children: [
+              MyColoredBox(),
+              MyColoredBox(),
+              MyColoredBox(),
+              MyColoredBox(),
+            ],
+          ),
+          const MyWidget(name: 'Hi FEUP!'),
+          const MyStatefulWidget(),
+          const Spacer(),
+          const Text(
+            'You have pushed the button this many times:',
+          ),
+          Text(
+            '$_counter',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          const Spacer(),
+          IconButton.filled(
+            icon: const Icon(Icons.add),
+            onPressed: () => _incrementCounter(),
+          ),
+          const SizedBox(height: 20),
+        ],
+      ),
+    );
+  }
+
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SecondPage(
-                      title: 'Second Page',
-                    ),
-                  ),
-                );
-              },
-              child: Container(
-                height: 60,
-                width: 120,
-                color: Colors.amber,
-                child: const Center(
-                  child: Text('Second Page'),
-                ),
-              ),
-            ),
-            const Row(
-              children: [
-                MyColoredBox(),
-                MyColoredBox(),
-                MyColoredBox(),
-                MyColoredBox(),
-              ],
-            ),
-            const MyWidget(name: 'Hi FEUP!'),
-            const MyStatefulWidget(),
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
   }
 }
