@@ -1,5 +1,5 @@
 import 'package:feup_flutter_demo/ui/counter_page.dart';
-import 'package:feup_flutter_demo/ui/list_page.dart';
+import 'package:feup_flutter_demo/ui/list/list_page.dart';
 import 'package:flutter/material.dart';
 
 class ShellPage extends StatefulWidget {

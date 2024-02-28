@@ -1,3 +1,4 @@
+import 'package:feup_flutter_demo/ui/list/details_page.dart';
 import 'package:flutter/material.dart';
 
 class ListPage extends StatefulWidget {
@@ -21,11 +22,23 @@ class _ListPageState extends State<ListPage> {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 20),
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              color: Colors.blue,
-              child: Center(
-                child: Text(listItems[index].toString()),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailsPage(
+                      item: listItems[index],
+                    ),
+                  ),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                color: Colors.blue,
+                child: Center(
+                  child: Text(listItems[index].toString()),
+                ),
               ),
             ),
           );
