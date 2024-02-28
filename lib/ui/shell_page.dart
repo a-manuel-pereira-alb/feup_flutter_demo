@@ -1,5 +1,5 @@
 import 'package:feup_flutter_demo/ui/counter_page.dart';
-import 'package:feup_flutter_demo/ui/second_page.dart';
+import 'package:feup_flutter_demo/ui/list_page.dart';
 import 'package:flutter/material.dart';
 
 class ShellPage extends StatefulWidget {
@@ -33,8 +33,8 @@ class _ShellPageState extends State<ShellPage> {
 
           // Second Menu Item
           BottomNavigationBarItem(
-            icon: Icon(Icons.other_houses),
-            label: 'Second',
+            icon: Icon(Icons.list),
+            label: 'List',
           ),
         ],
         onTap: (index) => _changePage(pageIndex: index),
@@ -46,7 +46,7 @@ class _ShellPageState extends State<ShellPage> {
     if (_selectedIndex == 0) {
       return const CounterPage();
     } else {
-      return const SecondPage();
+      return const ListPage();
     }
   }
 

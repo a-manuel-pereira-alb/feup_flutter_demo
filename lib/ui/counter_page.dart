@@ -1,7 +1,7 @@
 import 'package:feup_flutter_demo/components/my_colored_box.dart';
 import 'package:feup_flutter_demo/components/my_stateful_widget.dart';
 import 'package:feup_flutter_demo/components/my_widget.dart';
-import 'package:feup_flutter_demo/ui/second_page.dart';
+import 'package:feup_flutter_demo/ui/list_page.dart';
 import 'package:flutter/material.dart';
 
 class CounterPage extends StatefulWidget {
@@ -27,7 +27,7 @@ class _CounterPageState extends State<CounterPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const SecondPage(),
+                  builder: (context) => const ListPage(),
                 ),
               );
             },
