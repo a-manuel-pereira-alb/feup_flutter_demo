@@ -1,3 +1,4 @@
+import 'package:feup_flutter_demo/ui/list/components/list_item.dart';
 import 'package:feup_flutter_demo/ui/list/details_page.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,8 @@ class _ListPageState extends State<ListPage> {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 20),
-            child: GestureDetector(
+            child: ListItem(
+              item: listItems[index],
               onTap: () {
                 Navigator.push(
                   context,
@@ -33,13 +35,6 @@ class _ListPageState extends State<ListPage> {
                   ),
                 );
               },
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                color: Colors.blue,
-                child: Center(
-                  child: Text(listItems[index].toString()),
-                ),
-              ),
             ),
           );
         },
