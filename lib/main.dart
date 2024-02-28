@@ -108,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const MyWidget(name: 'Hi FEUP!'),
-            const MyStatefulWidget(name: 'Tap me!'),
+            const MyStatefulWidget(),
             const Text(
               'You have pushed the button this many times:',
             ),

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MyStatefulWidget extends StatefulWidget {
-  final String name;
-
   const MyStatefulWidget({
     Key? key,
-    required this.name,
   }) : super(key: key);
 
   @override
@@ -23,8 +20,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         height: 100,
         width: 100,
         color: _backgroundColor,
-        child: Center(
-          child: Text(widget.name),
+        child: const Center(
+          child: Text('Tap me'),
         ),
       ),
     );
