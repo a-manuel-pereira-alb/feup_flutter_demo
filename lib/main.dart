@@ -1,3 +1,4 @@
+import 'package:feup_flutter_demo/my_stateful_widget.dart';
 import 'package:feup_flutter_demo/my_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -107,6 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const MyWidget(name: 'Hi FEUP!'),
+            const MyStatefulWidget(name: 'Tap me!'),
             const Text(
               'You have pushed the button this many times:',
             ),
