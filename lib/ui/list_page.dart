@@ -15,27 +15,21 @@ class _ListPageState extends State<ListPage> {
     final listItems = List<int>.generate(1000, (index) => index + 1);
 
     return Material(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: listItems
-                .map(
-                  (listItem) => Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 20),
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                      color: Colors.blue,
-                      child: Center(
-                        child: Text(listItem.toString()),
-                      ),
-                    ),
-                  ),
-                )
-                .toList(),
-          ),
-        ),
+      child: ListView.builder(
+        padding: const EdgeInsets.all(20),
+        itemCount: listItems.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              color: Colors.blue,
+              child: Center(
+                child: Text(listItems[index].toString()),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
