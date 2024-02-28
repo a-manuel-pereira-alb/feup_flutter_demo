@@ -1,12 +1,13 @@
+import 'package:feup_flutter_demo/models/person_model.dart';
 import 'package:flutter/material.dart';
 
-class ListItem extends StatelessWidget {
-  final int item;
+class PersonItem extends StatelessWidget {
+  final PersonModel person;
   final VoidCallback onTap;
 
-  const ListItem({
+  const PersonItem({
     Key? key,
-    required this.item,
+    required this.person,
     required this.onTap,
   }) : super(key: key);
 
@@ -18,7 +19,7 @@ class ListItem extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         color: Colors.blue,
         child: Center(
-          child: Text(item.toString()),
+          child: Text(person.name),
         ),
       ),
     );

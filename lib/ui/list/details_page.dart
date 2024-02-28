@@ -1,11 +1,12 @@
+import 'package:feup_flutter_demo/models/person_model.dart';
 import 'package:flutter/material.dart';
 
 class DetailsPage extends StatefulWidget {
-  final int item;
+  final PersonModel person;
 
   const DetailsPage({
     super.key,
-    required this.item,
+    required this.person,
   });
 
   @override
@@ -18,12 +19,12 @@ class _DetailsPageState extends State<DetailsPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.item.toString()),
+        title: Text(widget.person.name),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Center(
-          child: Text('This is ${widget.item.toString()} details page!'),
+          child: Text('This is ${widget.person.name} details page!'),
         ),
       ),
     );
