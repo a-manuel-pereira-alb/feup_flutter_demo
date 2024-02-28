@@ -1,6 +1,7 @@
 import 'package:feup_flutter_demo/components/my_colored_box.dart';
 import 'package:feup_flutter_demo/components/my_stateful_widget.dart';
 import 'package:feup_flutter_demo/components/my_widget.dart';
+import 'package:feup_flutter_demo/ui/second_page.dart';
 import 'package:flutter/material.dart';
 
 class CounterPage extends StatefulWidget {
@@ -32,6 +33,26 @@ class _CounterPageState extends State<CounterPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SecondPage(
+                      title: 'Second Page',
+                    ),
+                  ),
+                );
+              },
+              child: Container(
+                height: 60,
+                width: 120,
+                color: Colors.amber,
+                child: const Center(
+                  child: Text('Second Page'),
+                ),
+              ),
+            ),
             const Row(
               children: [
                 MyColoredBox(),
