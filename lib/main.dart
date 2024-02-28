@@ -1,3 +1,4 @@
+import 'package:feup_flutter_demo/my_colored_box.dart';
 import 'package:feup_flutter_demo/my_stateful_widget.dart';
 import 'package:feup_flutter_demo/my_widget.dart';
 import 'package:flutter/material.dart';
@@ -107,6 +108,14 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const Row(
+              children: [
+                MyColoredBox(),
+                MyColoredBox(),
+                MyColoredBox(),
+                MyColoredBox(),
+              ],
+            ),
             const MyWidget(name: 'Hi FEUP!'),
             const MyStatefulWidget(),
             const Text(
