@@ -34,7 +34,7 @@ class _ListPageState extends State<ListPage> {
       const PersonModel(name: 'Manuela'),
       const PersonModel(name: 'Alice'),
       const PersonModel(name: 'Vitor'),
-      const PersonModel(name: 'Maria'),
+      const PersonModel(name: 'Francisca'),
     ];
 
     return Material(
@@ -42,8 +42,10 @@ class _ListPageState extends State<ListPage> {
         padding: const EdgeInsets.all(20),
         itemCount: people.length,
         itemBuilder: (context, index) {
+          final isLastPerson = people.last == people[index];
+
           return Padding(
-            padding: const EdgeInsets.only(bottom: 20),
+            padding: EdgeInsets.only(bottom: isLastPerson ? 0 : 20),
             child: PersonItem(
               person: people[index],
               onTap: () {

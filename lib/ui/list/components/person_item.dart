@@ -16,10 +16,40 @@ class PersonItem extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap.call(),
       child: Container(
+        height: 80,
         padding: const EdgeInsets.all(10),
-        color: Colors.blue,
-        child: Center(
-          child: Text(person.name),
+        decoration: BoxDecoration(
+          color: Colors.blueAccent.shade100,
+          borderRadius: const BorderRadius.all(
+            Radius.circular(12),
+          ),
+        ),
+        child: Row(
+          children: [
+            Container(
+              height: 40,
+              width: 40,
+              decoration: const BoxDecoration(
+                color: Colors.blue,
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Icons.person,
+                color: Colors.white,
+                //size: 40,
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                person.name,
+                style: const TextStyle(
+                  color: Colors.black87,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
