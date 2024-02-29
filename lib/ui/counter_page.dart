@@ -3,6 +3,7 @@ import 'package:feup_flutter_demo/components/my_stateful_widget.dart';
 import 'package:feup_flutter_demo/components/my_widget.dart';
 import 'package:feup_flutter_demo/ui/list/list_page.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CounterPage extends StatefulWidget {
   const CounterPage({
@@ -14,7 +15,15 @@ class CounterPage extends StatefulWidget {
 }
 
 class _CounterPageState extends State<CounterPage> {
+  late SharedPreferences sharedPreferences;
   int _counter = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _getCounter();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +78,30 @@ class _CounterPageState extends State<CounterPage> {
     );
   }
 
+  /// Get counter from preferences.
+  void _getCounter() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+
+    final counter = sharedPreferences.getInt('counter');
+
+    if (counter != null) {
+      setState(() {
+        _counter = counter;
+      });
+    }
+  }
+
+  /// Save counter in preferences.
+  void _saveCounter() async {
+    await sharedPreferences.setInt('counter', _counter);
+  }
+
+  /// Increment counter.
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
+
+    _saveCounter();
   }
 }
